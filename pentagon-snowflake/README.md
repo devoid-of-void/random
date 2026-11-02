@@ -1,6 +1,6 @@
 # The Pentagon Snowflake
 
-![Seventh-generation pentagon snowflake](snowflake.svg)
+![Seventh-generation pentagon snowflake](snowflake.png)
 
 A fivefold-symmetric, self-similar pattern generated from **one regular pentagon** by repeatedly reflecting the whole construction across the five sides of its enclosing pentagon.
 
@@ -55,7 +55,7 @@ The enclosing boundary remains a plain pentagon; the increasingly intricate stru
 Requires Python 3.9+; standard-library-only for SVG output.
 
 ```sh
-python3 pentagon_roll.py 7 -o snowflake.svg
+python3 pentagon_roll.py 7 -o snowflake.png
 ```
 
 To generate every stage through generation 4:
@@ -70,12 +70,12 @@ For a raster PNG as well, install CairoSVG (Debian package `python3-cairosvg`):
 python3 pentagon_roll.py 4 --png --size 1400 -o example.svg
 ```
 
-**Rendering note:** The SVG uses nested `<use>` elements, so generation 7 needs only a few kilobytes rather than hundreds of thousands of expanded polygons. Some SVG rasterizers may take substantial time and memory to export the largest generations to PNG.
+**Rendering note:** The generator uses nested `<use>` elements to keep its SVG output compact, but browsers and SVG rasterizers can struggle at high generations. The repository therefore includes the generation-7 **PNG** rather than the huge recursive SVG.
 
 ## Files
 
 - [`pentagon_roll.py`](pentagon_roll.py) — Python generator (SVG; optional PNG).
-- [`snowflake.svg`](snowflake.svg) — generation 7 artwork, scalable without pixelation.
+- [`snowflake.png`](snowflake.png) — generation 7 bitmap artwork.
 - [`test_pentagon_roll.py`](test_pentagon_roll.py) — standard-library unit tests.
 
 ## Credits
